@@ -1,30 +1,15 @@
-
+<template>
+  <div id="app">
+    <base-demo></base-demo>
+  </div>
+</template>
 
 <script>
+import BaseDemo from './components/BaseDemo.vue';
 export default {
   name:'app',
-  data(){
-    return {
-      value:'hello world',
-      show:false
-    }
-  },
   components:{
-
-  },
-  render(h){
-    return (<h1>{ this.value }
-      <div domPropsTextContent='<a>lianjie</a>'></div>
-      <div v-show={this.show}>show</div>
-      {false && <div>v-if</div>}
-      
-    </h1>
-            
-    )
+    BaseDemo,
   }
 }
 </script>
-
-<style>
-
-</style>
