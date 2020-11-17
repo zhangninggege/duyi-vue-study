@@ -1,17 +1,21 @@
 <template>
   <div id="app">
     <div class="nav-box">
-      <div class="logo">度一教育</div>
+      <div class="logo" @click="handleClick">渡一教育</div>
       <div class="nav-list">
-        <router-link to="/">首页</router-link>
+        <router-link to="/Login">登录</router-link>
+        <router-link to="/Home">首页</router-link>
         <router-link to="/Learn">学习</router-link>
         <router-link to="/Student">学员展示</router-link>
         <router-link to="/About">关于</router-link>
         <router-link to="/Community">社区</router-link>
       </div>
+      
     </div>
     <div class="content">
-      <router-view></router-view>
+      <transition>
+        <router-view></router-view>
+      </transition>
     </div>
     
   </div>
@@ -20,10 +24,25 @@
 <script>
 export default {
   name: "app",
+  methods:{
+    handleClick(){
+      this.$router.replace('/')
+    }
+  }
 };
 </script>
 
 <style scoped>
+
+.v-enter{
+    transform: translateX(1000px);
+  }
+  .v-enter-active{
+    transition: all .5s;
+  }
+  .v-enter-to{
+    transform: translateX(0px);
+  }
   .nav-box{
     display: flex;
     justify-content: space-between; 
@@ -48,8 +67,11 @@ export default {
     padding-right:200px;
     padding-left:200px;
   }
-  .nav-list a.router-link-exact-active{
+  .nav-list a.router-link-active{
     font-weight: 700;
   }
+  
+  
+
 </style>
 
